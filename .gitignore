@@ -1,0 +1,14 @@
+node_modules/
+.env
+dist/
+*.log
+test.*
+
+yarn.lock
+package-lock.json
+login_script.sh
+
+ENVs
+env/.env.development
+env/.env.production
+env/.env.testing
