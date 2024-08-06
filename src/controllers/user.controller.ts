@@ -58,10 +58,10 @@ const loginUser = async ({ nerveId, password }, res) => {
     // Find user by nerveId and include password in the query
     const user =
       nerveId.includes(".") && nerveId.includes("@")
-        ? await User.findOne({ email: nerveId })
+        ? await User.findOne({ email: nerveId?.trim().toLowerCase() })
             .select("+password")
             .populate("profile")
-        : await User.findOne({ nerveId })
+        : await User.findOne({ nerveId: nerveId?.trim() })
             .select("+password")
             .populate("profile");
     if (!user) {
