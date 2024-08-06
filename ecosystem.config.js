@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = [
+module.exports = [
   {
     name: "nerve.io",
     script: "dist/server.js",
@@ -16,4 +14,3 @@ exports.default = [
     },
   },
 ];
-//# sourceMappingURL=ecosystem.config.js.map
