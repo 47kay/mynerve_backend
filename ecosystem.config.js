@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = [
   {
-    name: "erp",
+    name: "nerve.io",
     script: "dist/server.js",
     args: "",
     exec_mode: "",
