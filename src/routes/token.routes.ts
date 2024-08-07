@@ -18,7 +18,7 @@ router.post("/create", async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -111,7 +111,7 @@ router.post("/resend-verification", async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -132,7 +132,7 @@ router.get(
       });
     } catch (err) {
       res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: err.message,
       });
     }
@@ -153,7 +153,7 @@ router.get(
       });
     } catch (err) {
       res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: err.message,
       });
     }
@@ -174,7 +174,7 @@ router.get(
       });
     } catch (err) {
       res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: err.message,
       });
     }

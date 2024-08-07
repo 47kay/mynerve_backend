@@ -42,7 +42,7 @@ const loginUser = async ({ email, password }, res) => {
     }
     const user = await HospitalFacility.findOne({ email }).select("+password");
     if (!user) {
-      throw Error("Hospital Facility does not exist");
+      throw Error("Hospital facility does not exist!");
     }
     // remote: 6657c85c7922deca00ff3c89, local:6657705c566f3e94538a21e1
     const chat = await findInitialChatForHealthcare(
@@ -146,7 +146,7 @@ const loginUser = async ({ email, password }, res) => {
         await sendMail(verifyEmailMailoptions);
 
         return res.json({
-          status: "PENDING",
+          success: true,
           message: "A mail has been sent to your account kindly verify",
           data: { user: userRes, accessToken: null, chat },
         });

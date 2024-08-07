@@ -25,7 +25,7 @@ router.post("/make", authenticate, async (req: Request, res: Response) => {
       // Input validation
       if (!bloodlineEmail) {
         return res.status(400).json({
-          status: "FAILED",
+          success: false,
           message: "Bloodline email is required.",
         });
       }
@@ -65,7 +65,7 @@ router.post("/make", authenticate, async (req: Request, res: Response) => {
   } catch (err) {
     console.error(err); // Log the error for debugging purposes
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -80,7 +80,7 @@ router.get("/all", authenticate, async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -98,7 +98,7 @@ router.get(
       });
     } catch (err) {
       res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: err.message,
       });
     }
@@ -117,7 +117,7 @@ router.get(
       });
     } catch (err) {
       res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: err.message,
       });
     }
@@ -137,7 +137,7 @@ router.post(
       });
     } catch (err) {
       res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: err.message,
       });
     }
@@ -182,7 +182,7 @@ router.post("/accept", authenticate, async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -226,7 +226,7 @@ router.post("/reject", authenticate, async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -246,7 +246,7 @@ router.delete(
       });
     } catch (err) {
       res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: err.message,
       });
     }

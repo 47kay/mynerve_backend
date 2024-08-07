@@ -16,7 +16,7 @@ router.post("/create", async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -32,7 +32,7 @@ router.get("/chat/:chatId", async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.json({
-      status: "FAILED",
+      success: false,
       messages: err.message,
     });
   }
@@ -47,7 +47,7 @@ router.delete("/delete", async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }

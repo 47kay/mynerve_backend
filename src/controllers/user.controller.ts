@@ -50,7 +50,7 @@ const loginUser = async ({ nerveId, password }, res) => {
     // Check for empty fields
     if (!nerveId || !password) {
       return res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: "Empty fields not allowed",
       });
     }
@@ -66,7 +66,7 @@ const loginUser = async ({ nerveId, password }, res) => {
             .populate("profile");
     if (!user) {
       return res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: "User does not exist",
       });
     }
@@ -165,7 +165,7 @@ const loginUser = async ({ nerveId, password }, res) => {
         await sendMail(mailoptions);
 
         return res.json({
-          status: "PENDING",
+          success: true,
           message: "A mail has been sent to your account. Kindly verify.",
           data: {
             user: userRes,
@@ -203,7 +203,7 @@ const loginUser = async ({ nerveId, password }, res) => {
       });
     } else {
       return res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: "Invalid credentials",
       });
     }

@@ -18,7 +18,7 @@ router.post("/create", async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -34,7 +34,7 @@ router.get("/user/:userId", async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -49,7 +49,7 @@ router.get("/recent/:userId", async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -68,7 +68,7 @@ router.get("/find/:firstId/:secondId", async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -83,7 +83,7 @@ router.delete("/delete/:id", async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }

@@ -19,7 +19,7 @@ router.post("/add", authenticate, async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -35,7 +35,7 @@ router.get("/all", authenticate, async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -50,7 +50,7 @@ router.get("/user/:id", authenticate, async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -68,7 +68,7 @@ router.put("/update/:id", authenticate, async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -88,7 +88,7 @@ router.delete(
       });
     } catch (err) {
       res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: err.message,
       });
     }

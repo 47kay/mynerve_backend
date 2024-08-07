@@ -22,7 +22,7 @@ router.use("/token", tokenRoutes);
 router.use("/chat", chatRoutes);
 router.use("/message", messageRoutes);
 router.use("/super-admin", adminRoutes);
-router.use("/hospital-facility", facilityRoutes);
+router.use("/facility", facilityRoutes);
 router.use("/hospital-profile", providerRoutes);
 router.use("/connection", connectionRoutes);
 router.use("/tips", tipRoutes);

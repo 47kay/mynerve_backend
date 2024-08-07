@@ -107,13 +107,13 @@ router.post("/signup", async (req: Request, res: Response) => {
       await sendMail(mailoptions);
 
       res.json({
-        status: "PENDING",
+        success: true,
         message: "An email has been sent to your account. Kindly verify.",
       });
     }
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -125,7 +125,7 @@ router.post("/signin", async (req: Request, res: Response) => {
     return await loginUser(req.body, res);
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -140,7 +140,7 @@ router.get("/all", authenticate, async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -155,7 +155,7 @@ router.get("/single/:id", authenticate, async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -173,7 +173,7 @@ router.get(
       });
     } catch (err) {
       res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: err.message,
       });
     }
@@ -190,7 +190,7 @@ router.post("/forget-password", async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -208,7 +208,7 @@ router.post("/update-password", async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -225,7 +225,7 @@ router.put("/update/:id", authenticate, async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -245,7 +245,7 @@ router.delete(
       });
     } catch (err) {
       res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: err.message,
       });
     }

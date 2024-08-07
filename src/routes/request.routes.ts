@@ -123,7 +123,7 @@ router.post(
       });
     } catch (err) {
       res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: err.message,
       });
     }
@@ -139,7 +139,7 @@ router.get("/all", authenticate, async (req: Request, res: Response) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "FAILED",
+      success: false,
       message: err.message,
     });
   }
@@ -157,7 +157,7 @@ router.get(
       });
     } catch (err) {
       res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: err.message,
       });
     }
@@ -176,7 +176,7 @@ router.get(
       });
     } catch (err) {
       res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: err.message,
       });
     }
@@ -210,7 +210,7 @@ router.post(
       });
     } catch (err) {
       res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: err.message,
       });
     }
@@ -241,7 +241,7 @@ router.post(
       });
     } catch (err) {
       res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: err.message,
       });
     }
@@ -262,7 +262,7 @@ router.delete(
       });
     } catch (err) {
       res.status(400).json({
-        status: "FAILED",
+        success: false,
         message: err.message,
       });
     }
