@@ -4,7 +4,7 @@ export default (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) {
     return res.status(401).json({
-      status: "fail",
+      success: false,
       message: "Unauthorized!",
     });
   }
@@ -15,7 +15,7 @@ export default (req, res, next) => {
     next();
   } catch (error) {
     res.status(401).json({
-      status: "fail",
+      success: false,
       message: "Unauthorized!",
     });
   }

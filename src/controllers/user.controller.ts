@@ -61,9 +61,12 @@ const loginUser = async ({ nerveId, password }, res) => {
         ? await User.findOne({ email: nerveId?.trim().toLowerCase() })
             .select("+password")
             .populate("profile")
+            .exec()
         : await User.findOne({ nerveId: nerveId?.trim() })
             .select("+password")
-            .populate("profile");
+            .populate("profile")
+            .exec();
+
     if (!user) {
       return res.status(400).json({
         success: false,
@@ -183,11 +186,11 @@ const loginUser = async ({ nerveId, password }, res) => {
       const accessToken = jwt.sign(userRes, "SECRET");
 
       const response = {
-        user: userRes,
+        user,
         accessToken,
         profile: {
-          // isComplete: user.profile.isComplete,
-          // isUpdated: user.profile.isUpdated,
+          isComplete: user.profile.isComplete,
+          isUpdated: user.profile.isUpdated,
           profileId: user.profile._id,
         },
         bloodlineConnections: {
@@ -230,7 +233,6 @@ const logoutUser = async ({ userId }) => {
     throw err;
   }
 };
-// update user
 const updateUser = async (userId, data) => {
   try {
     const user = await User.updateOne({ _id: userId }, data);

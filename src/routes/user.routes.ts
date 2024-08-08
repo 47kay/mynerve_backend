@@ -14,6 +14,7 @@ import { createNewProfile } from "../controllers/profile.controller";
 import authenticate from "../middlewares/authenticate";
 import { createToken } from "../controllers/token.controller";
 import sendMail from "../utils/sendMail";
+import User from "../domains/user/model";
 
 const router = express.Router();
 
@@ -255,10 +256,15 @@ router.delete(
 router.post("/verify/token", authenticate, async (req: any, res: Response) => {
   const authHeader = req.headers.authorization;
   const token = authHeader.split(" ")[1];
-  return res.json({
+
+  const user = await User.findOne({ _id: req.user._id })
+    .populate("profile")
+    .exec();
+
+  return res.status(200).json({
     success: true,
     message: "User fetch success!",
-    data: { user: req.user, accessToken: token },
+    data: { user, accessToken: token },
   });
 });
 
